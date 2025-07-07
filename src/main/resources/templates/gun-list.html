@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gun Shop</title>
+</head>
+<body>
+<h1>Gun List</h1>
+<a href="/guns/new">Add New Gun</a>
+<ul>
+    <li th:each="gun : ${guns}">
+        <span th:text="${gun.name}"></span> -
+        <span th:text="${gun.type}"></span> -
+        $<span th:text="${gun.price}"></span>
+        [<a th:href="@{'/guns/edit/' + ${gun.id}}">Edit</a>]
+        [<a th:href="@{'/guns/delete/' + ${gun.id}}">Delete</a>]
+    </li>
+</ul>
+</body>
+</html>
